@@ -107,15 +107,6 @@ The codebase supports 6 different model versions. The table below lists the chan
 | 5 | -- | SmoothL1 | -- | Less stable |
 | 6 | -- | Combined loss (+CIoU) | Combined loss (+Dice) | Similar performance to v4 |
 
-<!-- ### Model Architecture Highlights
-
-- **Backbone**: ConvNeXt-Tiny (pretrained on ImageNet)
-- **RGB Branch**: Full ConvNeXt-Tiny features
-- **Depth Branch**: Modified first layer to accept 1-channel input
-- **Fusion**: Depth-Guided Spatial Attention (DGSA) at 7×7 level
-- **Multi-Task Heads**: Classification, detection (bbox), segmentation (mask)
-- **Loss Balancing**: Automatic uncertainty-weighted multi-task loss -->
-
 ---
 
 ## Training
@@ -168,27 +159,6 @@ CONFIG = {
     "results_path": "../results/training_log_v4.json"
 }
 ```
-
-<!-- ### Training Strategy
-
-The training uses a **two-phase approach**:
-
-#### Phase 1: Semantic Warmup (Epochs 1-5)
-- Focus on classification task
-- Freeze detection and segmentation heads
-- Helps stabilize backbone features
-- Save best model based on classification accuracy
-
-#### Phase 2: Multi-Task Joint Training (Epochs 6-50)
-- Train all tasks simultaneously
-- Use uncertainty-weighted loss for automatic task balancing
-- Different learning rates for different module groups:
-  - Backbone & classification head: 0.5× learning rate (protection)
-  - Detection & segmentation heads: 1× learning rate (catch up)
-  - Uncertainty parameters: 10× learning rate (rapid balancing)
-- Save best model based on combined weighted score
-
--->
 
 ---
 
