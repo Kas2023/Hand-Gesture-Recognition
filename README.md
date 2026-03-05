@@ -241,7 +241,7 @@ The evaluation outputs the following metrics in JSON format:
     "seg_miou": 0.82,                  // Segmentation mean IoU
     "seg_dice": 0.88,                  // Segmentation Dice coefficient
     "det_mean_iou": 0.75,              // Detection mean bounding box IoU
-    "det_acc_at_05": 0.71,             // Detection accuracy @ IoU 0.5
+    "det_acc_at_05": 0.71,             // Detection accuracy@0.5 IoU
     "conf_matrix": [[...], [...], ...] // 10x10 confusion matrix
 }
 ```
